@@ -200,7 +200,7 @@ def needs_quotes( s ):
 
 
 def quote_if_necessary(s):
-
+    """Enclode attribute value in quotes, if needed."""
     if s == '':
         return '""'
     if isinstance(s, bool):
