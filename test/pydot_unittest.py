@@ -335,5 +335,11 @@ class TestGraphAPI(unittest.TestCase):
         data = g.create( format='jpe' )
         self.assertEqual( len(data) > 0, True )
 
+    def test_dot_args(self):
+        g = pydot.Dot()
+        u = pydot.Node('a')
+        g.add_node(u)
+        g.write_svg('test.svg', prog=['twopi', '-Goverlap=scale'])
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
