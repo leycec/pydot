@@ -336,7 +336,6 @@ class TestGraphAPI(unittest.TestCase):
         self.assertEqual( len(data) > 0, True )
 
 if __name__ == '__main__':
-
-    suite = unittest.TestLoader().loadTestsFromTestCase( TestGraphAPI )
-
-    unittest.TextTestRunner(verbosity=2).run(suite)
+    unittest.main(verbosity=2)
+    # suite = unittest.TestLoader().loadTestsFromTestCase( TestGraphAPI )
+    # unittest.TextTestRunner(verbosity=2).run(suite)
