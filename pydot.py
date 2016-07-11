@@ -201,8 +201,6 @@ def needs_quotes( s ):
 
 def quote_if_necessary(s):
     """Enclode attribute value in quotes, if needed."""
-    if s == '':
-        return '""'
     if isinstance(s, bool):
         if s is True:
             return 'True'
@@ -618,6 +616,8 @@ class Node(Common):
 
         for attr in self.obj_dict['attributes']:
             value = self.obj_dict['attributes'][attr]
+            if value == '':
+                value = '""'
             if value is not None:
                 node_attr.append(
                     '%s=%s' % (attr, quote_if_necessary(value) ) )
@@ -822,6 +822,8 @@ class Edge(Common):
 
         for attr in self.obj_dict['attributes']:
             value = self.obj_dict['attributes'][attr]
+            if value == '':
+                value = '""'
             if value is not None:
                 edge_attr.append(
                     '%s=%s' % (attr, quote_if_necessary(value) ) )
@@ -1457,6 +1459,8 @@ class Graph(Common):
             if self.obj_dict['attributes'].get(attr, None) is not None:
 
                 val = self.obj_dict['attributes'].get(attr)
+                if val == '':
+                    val = '""'
                 if val is not None:
                     graph.append('%s=%s' %
                                  (attr, quote_if_necessary(val)))
