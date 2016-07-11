@@ -201,6 +201,8 @@ def needs_quotes( s ):
 
 def quote_if_necessary(s):
 
+    if s == '':
+        return '""'
     if isinstance(s, bool):
         if s is True:
             return 'True'
